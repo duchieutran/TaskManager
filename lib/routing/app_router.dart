@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskmanager/views/add/add.dart';
 import 'package:taskmanager/views/home/home.dart';
 import 'package:taskmanager/views/login_signup/login.dart';
 import 'package:taskmanager/views/login_signup/singup.dart';
@@ -24,20 +25,24 @@ class AppRouter {
         return const Splash();
       case view:
         return const ViewScreen();
-      case home:
-        return const Home();
       case login:
         return const Login();
       case singup:
         return const SignUp();
+      case home:
+        return const Home();
+      case add:
+        return const Add();
+
       default:
         throw "$nameRouter is not define";
     }
   }
 
-  static const String splash = '/';
+  static const String splash = '/splash';
   static const String view = '/view';
-  static const String home = '/home';
   static const String singup = '/singup';
-  static const String login = '/login';
+  static const String login = '/';
+  static const String home = '/home';
+  static const String add = '/add';
 }

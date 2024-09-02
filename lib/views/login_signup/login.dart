@@ -166,7 +166,7 @@ class _LoginState extends State<Login> {
           const Duration(seconds: 5),
           () {
             if (mounted) {
-              Navigator.pushReplacementNamed(context, AppRouter.view);
+              Navigator.pushReplacementNamed(context, AppRouter.home);
             }
           },
         );

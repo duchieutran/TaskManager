@@ -10,7 +10,7 @@ class FirebaseAuthentication {
           .signInWithEmailAndPassword(email: email, password: password);
       return userCredential.user;
     } catch (e) {
-      print(e); // TODO : custom lại throw
+      print(e); 
     }
     return null;
   }
