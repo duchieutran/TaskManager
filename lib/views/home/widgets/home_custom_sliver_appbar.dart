@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
+  final String name, username, images;
   const CustomSliverAppBar({
     super.key,
+    required this.name,
+    required this.username,
+    required this.images,
   });
 
   @override
@@ -16,11 +20,11 @@ class CustomSliverAppBar extends StatelessWidget {
       expandedHeight: 0.28.sh,
       flexibleSpace: FlexibleSpaceBar(
         background: Container(
-          padding: EdgeInsets.symmetric(vertical: 0.07.sh, horizontal: 0.1.sw),
+          padding: EdgeInsets.symmetric(vertical: 0.03.sh, horizontal: 0.05.sw),
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
-              Color.fromARGB(255, 112, 1, 177),
-              Color.fromRGBO(151, 0, 237, 1),
+              Color.fromARGB(255, 99, 2, 155),
+              Color.fromRGBO(181, 54, 255, 1),
             ]),
           ),
           child: Column(
@@ -32,21 +36,21 @@ class CustomSliverAppBar extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Trần Đức Hiếu',
+                        name,
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 25.sp),
                       ),
                       Text(
-                        'hieucutequa',
+                        username,
                         style: TextStyle(color: Colors.white, fontSize: 20.sp),
                       )
                     ],
                   ),
                   CircleAvatar(
                     radius: 30.sp,
-                    child: Image.asset('assets/images/clock.png'),
+                    child: Image.asset('assets/images/user_nor.png'),
                   )
                 ],
               ),

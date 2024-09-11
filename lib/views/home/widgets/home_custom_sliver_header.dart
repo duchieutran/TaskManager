@@ -26,8 +26,8 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
       child: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 112, 1, 177),
-          Color.fromRGBO(151, 0, 237, 1),
+          Color.fromARGB(255, 99, 2, 155),
+          Color.fromRGBO(181, 54, 255, 1),
         ])),
         padding: EdgeInsets.symmetric(vertical: 0.02.sh, horizontal: 0.04.sw),
         child: Column(
@@ -51,7 +51,10 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
                   Padding(
                     padding: EdgeInsets.only(right: 20),
                     child: HomeCustomCagetoryItem(
-                      color: Colors.red,
+                      colors: [
+                        Color.fromARGB(255, 40, 197, 147),
+                        Color.fromARGB(255, 88, 248, 189),
+                      ],
                       cagetory: 'Learn',
                       countTask: '5 tasks',
                     ),
@@ -59,7 +62,32 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
                   Padding(
                     padding: EdgeInsets.only(right: 20),
                     child: HomeCustomCagetoryItem(
-                      color: Colors.green,
+                      colors: [
+                        Color.fromARGB(235, 240, 166, 55),
+                        Color.fromARGB(235, 247, 211, 156),
+                      ],
+                      cagetory: 'Work',
+                      countTask: '5 tasks',
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20),
+                    child: HomeCustomCagetoryItem(
+                      colors: [
+                        Color.fromARGB(255, 52, 55, 139),
+                        Color.fromARGB(255, 129, 133, 244)
+                      ],
+                      cagetory: 'Play',
+                      countTask: '5 tasks',
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20),
+                    child: HomeCustomCagetoryItem(
+                      colors: [
+                        Color.fromARGB(255, 227, 73, 227),
+                        Color.fromARGB(255, 255, 165, 244),
+                      ],
                       cagetory: 'Learn',
                       countTask: '5 tasks',
                     ),
@@ -67,23 +95,10 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
                   Padding(
                     padding: EdgeInsets.only(right: 20),
                     child: HomeCustomCagetoryItem(
-                      color: Colors.yellow,
-                      cagetory: 'Learn',
-                      countTask: '5 tasks',
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 20),
-                    child: HomeCustomCagetoryItem(
-                      color: Colors.blue,
-                      cagetory: 'Learn',
-                      countTask: '5 tasks',
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 20),
-                    child: HomeCustomCagetoryItem(
-                      color: Colors.red,
+                      colors: [
+                        Color.fromARGB(255, 97, 83, 176),
+                        Color.fromARGB(255, 174, 130, 241),
+                      ],
                       cagetory: 'Learn',
                       countTask: '5 tasks',
                     ),

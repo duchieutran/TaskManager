@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:taskmanager/models/tasklist.dart';
+import 'package:taskmanager/models/users.dart';
 import 'package:taskmanager/services/firebase_firestore.dart';
 
 part 'data_manage_store.g.dart';
@@ -13,6 +14,9 @@ abstract class DataManageStoreBase with Store {
   ObservableList<Task> tasklist = ObservableList<Task>();
 
   @observable
+  ObservableMap<String, dynamic> mapUser = ObservableMap<String, dynamic>();
+
+  @observable
   TextEditingController title = TextEditingController();
 
   @observable
@@ -22,6 +26,27 @@ abstract class DataManageStoreBase with Store {
   void dispose() {
     title.dispose();
     subtitle.dispose();
+  }
+
+  @action
+  Future<void> setStatus(int index, Task task) async {
+    tasklist[index] = task;
+    try {
+      await callUpdate();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @action
+  Future<bool> _infoUser() async {
+    try {
+      Users user = await _firebaseStore.getUser();
+      mapUser.addAll(user.toMap());
+      return true;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   @action
@@ -49,6 +74,16 @@ abstract class DataManageStoreBase with Store {
   }
 
   @action
+  Future<bool> _updateData() async {
+    try {
+      await _firebaseStore.updateTask(tasklist);
+      return true;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @action
   Future<void> callGet() async {
     await _getData();
   }
@@ -56,5 +91,15 @@ abstract class DataManageStoreBase with Store {
   @action
   Future<void> callAdd() async {
     await _addData();
+  }
+
+  @action
+  Future<void> callGetUser() async {
+    await _infoUser();
+  }
+
+  @action
+  Future<void> callUpdate() async {
+    await _updateData();
   }
 }

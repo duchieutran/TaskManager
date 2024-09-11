@@ -25,6 +25,22 @@ mixin _$DataManageStore on DataManageStoreBase, Store {
     });
   }
 
+  late final _$mapUserAtom =
+      Atom(name: 'DataManageStoreBase.mapUser', context: context);
+
+  @override
+  ObservableMap<String, dynamic> get mapUser {
+    _$mapUserAtom.reportRead();
+    return super.mapUser;
+  }
+
+  @override
+  set mapUser(ObservableMap<String, dynamic> value) {
+    _$mapUserAtom.reportWrite(value, super.mapUser, () {
+      super.mapUser = value;
+    });
+  }
+
   late final _$titleAtom =
       Atom(name: 'DataManageStoreBase.title', context: context);
 
@@ -57,6 +73,22 @@ mixin _$DataManageStore on DataManageStoreBase, Store {
     });
   }
 
+  late final _$setStatusAsyncAction =
+      AsyncAction('DataManageStoreBase.setStatus', context: context);
+
+  @override
+  Future<void> setStatus(int index, Task task) {
+    return _$setStatusAsyncAction.run(() => super.setStatus(index, task));
+  }
+
+  late final _$_infoUserAsyncAction =
+      AsyncAction('DataManageStoreBase._infoUser', context: context);
+
+  @override
+  Future<bool> _infoUser() {
+    return _$_infoUserAsyncAction.run(() => super._infoUser());
+  }
+
   late final _$_getDataAsyncAction =
       AsyncAction('DataManageStoreBase._getData', context: context);
 
@@ -73,6 +105,14 @@ mixin _$DataManageStore on DataManageStoreBase, Store {
     return _$_addDataAsyncAction.run(() => super._addData());
   }
 
+  late final _$_updateDataAsyncAction =
+      AsyncAction('DataManageStoreBase._updateData', context: context);
+
+  @override
+  Future<bool> _updateData() {
+    return _$_updateDataAsyncAction.run(() => super._updateData());
+  }
+
   late final _$callGetAsyncAction =
       AsyncAction('DataManageStoreBase.callGet', context: context);
 
@@ -87,6 +127,22 @@ mixin _$DataManageStore on DataManageStoreBase, Store {
   @override
   Future<void> callAdd() {
     return _$callAddAsyncAction.run(() => super.callAdd());
+  }
+
+  late final _$callGetUserAsyncAction =
+      AsyncAction('DataManageStoreBase.callGetUser', context: context);
+
+  @override
+  Future<void> callGetUser() {
+    return _$callGetUserAsyncAction.run(() => super.callGetUser());
+  }
+
+  late final _$callUpdateAsyncAction =
+      AsyncAction('DataManageStoreBase.callUpdate', context: context);
+
+  @override
+  Future<void> callUpdate() {
+    return _$callUpdateAsyncAction.run(() => super.callUpdate());
   }
 
   late final _$DataManageStoreBaseActionController =
@@ -107,6 +163,7 @@ mixin _$DataManageStore on DataManageStoreBase, Store {
   String toString() {
     return '''
 tasklist: ${tasklist},
+mapUser: ${mapUser},
 title: ${title},
 subtitle: ${subtitle}
     ''';

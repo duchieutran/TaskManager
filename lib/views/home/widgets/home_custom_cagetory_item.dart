@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeCustomCagetoryItem extends StatelessWidget {
-  final Color? color;
+  final List<Color> colors;
   final String cagetory;
   final String countTask;
   const HomeCustomCagetoryItem({
     super.key,
-    required this.color,
+    required this.colors,
     required this.cagetory,
     required this.countTask,
   });
@@ -16,7 +16,10 @@ class HomeCustomCagetoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: color,
+          gradient: LinearGradient(
+              colors: colors,
+              begin: const Alignment(0.6, 0.2),
+              end: const Alignment(0.2, 0.9)),
           borderRadius: const BorderRadius.all(Radius.circular(15))),
       padding: const EdgeInsets.all(10),
       height: 0.15.sh,
