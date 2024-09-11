@@ -1,7 +1,7 @@
-# Tên dự án : Task Manager
+# Tên dự án : Task Manager 
  
-# Công việc:
- - học và làm màn hình home(custom tiếp)
+# Thời gian bắt đầu:
+ 
 
 
 # package tìm hiểu thêm 
