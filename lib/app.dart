@@ -25,6 +25,7 @@ class _AppState extends State<App> {
                   Colors.lightBlue), // màu xuyên suốt trong toàn bộ ứng dụng
           useMaterial3: true, // sử dụng Material3
         ),
+        
       ),
     );
   }

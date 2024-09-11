@@ -155,26 +155,37 @@ class _LoginState extends State<Login> {
   }
 
   Future<void> singin(AuthModel authModel) async {
-    bool success = await authModel.singIn();
-    if (success) {
+    try {
+      bool success = await authModel.singIn();
+      if (success) {
+        if (mounted) {
+          QuickAlert.show(
+              context: context,
+              type: QuickAlertType.success,
+              title: "Login Success");
+          await Future.delayed(
+            const Duration(seconds: 5),
+            () {
+              if (mounted) {
+                Navigator.pushReplacementNamed(context, AppRouter.home);
+              }
+            },
+          );
+        }
+      } else {
+        if (mounted) {
+          QuickAlert.show(
+              context: context,
+              type: QuickAlertType.error,
+              title: "wrong email or password");
+        }
+      }
+    } catch (e) {
       if (mounted) {
         QuickAlert.show(
             context: context,
-            type: QuickAlertType.success,
-            title: "Login Success");
-        await Future.delayed(
-          const Duration(seconds: 5),
-          () {
-            if (mounted) {
-              Navigator.pushReplacementNamed(context, AppRouter.view);
-            }
-          },
-        );
-      }
-    } else {
-      if (mounted) {
-        QuickAlert.show(
-            context: context, type: QuickAlertType.error, title: "Login Fail");
+            type: QuickAlertType.warning,
+            title: "Login error");
       }
     }
   }

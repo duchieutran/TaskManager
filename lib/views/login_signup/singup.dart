@@ -74,7 +74,7 @@ class _SignUpState extends State<SignUp> {
             ),
             // TextField
             Padding(
-              padding: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
               child: Column(
                 children: <Widget>[
                   FadeInUp(
@@ -95,11 +95,17 @@ class _SignUpState extends State<SignUp> {
                         child: Column(
                           children: <Widget>[
                             SignTextfield(
+                                hintText: "Username",
+                                controller: authentication.usernameController),
+                            SignTextfield(
                                 hintText: "Email",
                                 controller: authentication.emailController),
                             SignTextfield(
                                 hintText: "Password",
                                 controller: authentication.passwordController),
+                            SignTextfield(
+                                hintText: "Name",
+                                controller: authentication.nameController),
                           ],
                         ),
                       )),
@@ -135,7 +141,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   SignPlugin(
                       onTap: () =>
-                          Navigator.pushNamed(context, AppRouter.singup),
+                          Navigator.pushNamed(context, AppRouter.login),
                       title: "Already have an account? Log in now."),
                   const SizedBox(
                     height: 20,
